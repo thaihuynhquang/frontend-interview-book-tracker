@@ -82,17 +82,17 @@
 :root[data-theme="light"] {
   color-scheme: light;
 
-  --bg-main: #ffffff;
+  --bg-main: #f7f3e8;
   --bg-card: #ffffff;
-  --bg-card-hover: #f5f5f0;
+  --bg-card-hover: #ece7d8;
   --bg-glass: rgba(255, 255, 255, 0.9);
   --border-color: #0a0a0a;
   --border-color-strong: #0a0a0a;
   --text-primary: #0a0a0a;
   --text-secondary: #3a3a3a;
   --text-muted: #6b6b6b;
-  --primary: #ffe900;
-  --primary-hover: #d6c400;
+  --primary: #c4b200;
+  --primary-hover: #a89600;
   --primary-glow: transparent;
   --primary-contrast: #0a0a0a;
   --accent-lime: #c4b200;
