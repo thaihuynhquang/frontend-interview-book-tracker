@@ -46,7 +46,7 @@ One row per **published** chapter (`tbd: false`) — pending chapters are exclud
 Chapter-number badge shows `displayNum` when set (Appendix A shows "A", not "11"). Cards for `tbd: true` chapters render a compact variant: number badge, title, a "Coming soon" status badge, the TBD notice text, and still a flashcard card (so the user can pre-plan, even though the chapter can't be completed yet).
 
 ### 4.2. Section Checklist (Read only)
-Each section row has exactly one checkbox — **Read**. The sibling app's second Hands-on checkbox does not exist here; there is no hands-on axis for an interview-prep book with no coding exercises baked into the text.
+Each section row has exactly one checkbox — **Read**. There is no hands-on axis: this is an interview-prep book with no coding exercises baked into the text.
 
 ### 4.3. Collapsible Section List
 Unchanged: a toggle button collapses/expands the section list per chapter, state kept in a `Set<string>` on the view instance (not persisted).
@@ -54,7 +54,7 @@ Unchanged: a toggle button collapses/expands the section list per chapter, state
 ## 5. Chapter Deliverable Specifications (PRD-04)
 
 ### 5.1. Flashcard Task Checklist
-One checkbox per published chapter, linking to `flashcards_guide.md`. **No lab checklist** — the original template's Lab section is entirely removed (type, data files, UI block, i18n keys).
+One checkbox per published chapter, linking to `flashcards_guide.md`. There is no lab checklist — this book has no hands-on lab track.
 
 ## 6. Resources View Specifications (PRD-06)
 
@@ -83,4 +83,4 @@ Unchanged: filters by chapter title + both text fields.
 | Export/Import/Reset | `actions/backup.ts` / `resetProgress()` | full app re-render + toast |
 
 ## 9. Pomodoro View Specifications (PRD-08, own tab, tracked but not weighted)
-Unchanged from the sibling app: timer, presets, session history, chime, browser notification. `pomodoroSessions` contributes to the dashboard's "Focus hours" tile only — it is not part of `overallPct`.
+Timer, presets, session history, chime, browser notification. `pomodoroSessions` contributes to the dashboard's "Focus hours" tile only — it is not part of `overallPct`.

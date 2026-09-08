@@ -59,7 +59,7 @@ interface QuitCriteriaRow { id: string; chapterId: string; stopSignal: string; e
 interface QuitCriteriaText { stopSignal: string; exitCriteria: string; }
 ```
 
-There is **no `Lab` type** in this app — the source book (interview prep, not a hands-on coding book) has no lab exercises, so the `handsOn`/`labDone` state axis and the whole lab-card UI from the original template were removed.
+There is **no `Lab` type** in this app — the source book (interview prep, not a hands-on coding book) has no lab exercises, so there is no `handsOn`/`labDone` state axis or lab-card UI.
 
 ## 3. State keys written to `localStorage` (`AppState`)
 

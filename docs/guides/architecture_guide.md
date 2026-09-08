@@ -2,7 +2,7 @@
 
 Technical architecture, stack, design patterns, and data flow for the **Frontend Interview Book Tracker** app. Reference for anyone extending `src/`.
 
-> This app is a clone of `vanilla-web-book-tracker`, re-pointed at a different book (*Acing the Frontend Interview*, Manning) with the hands-on-lab track removed since the source book has none. The machinery below is unchanged from that original; only `src/data/**`, `progress.ts`'s formula, and the palette differ.
+> This app has no hands-on-lab track, since the source book (*Acing the Frontend Interview*, Manning) has none — progress is tracked purely on reading and flashcard review.
 
 ## 1. Architectural Overview
 
@@ -50,17 +50,17 @@ overallPct = readPct * 0.5 + flashcardPct * 0.5
 readPct = readCount / TOTAL_SECTIONS * 100
 flashcardPct = flashcardDoneCount / TOTAL_FLASHCARDS * 100
 ```
-Two axes, not three — the source book has no hands-on lab track, so there is no `handsOnPct`/`deliverablesPct` term (unlike the original `vanilla-web-book-tracker`, which weighted read/hands-on/deliverables at 0.4/0.4/0.2). `TOTAL_SECTIONS`/`TOTAL_FLASHCARDS` only count the 7 published chapters — the 4 MEAP-pending chapters are excluded from both the numerator and denominator so they can never depress the percentage.
+Two axes, not three — the source book has no hands-on lab track, so there is no `handsOnPct`/`deliverablesPct` term. `TOTAL_SECTIONS`/`TOTAL_FLASHCARDS` only count the 7 published chapters — the 4 MEAP-pending chapters are excluded from both the numerator and denominator so they can never depress the percentage.
 
 ### Pattern 5: Modular Layered CSS System with CSS Custom Properties
 `@layer reset, base, components, views, utilities`. All colors, spacing, radii, shadows are tokens in `_tokens.css`; components never hardcode a hex value. This app's palette is a flat, high-contrast "No Starch Press cover" style — ink black + neon yellow spotlight, 2px hard borders, offset drop-shadows instead of glows — swapped in purely by changing token *values*, not names (see `ui_system_design_guide.md`).
 
 ## 5. Step-by-Step Blueprint for AI Agents
 
-Cloning this app for a third book follows the same 8 steps used to build it from `vanilla-web-book-tracker`:
+Replicating this app's architecture for a different book:
 
-1. **Bootstrap repo** — copy `index.html`, config files, `.github/`, `public/`, `src/`, `docs/`; drop `dist/`/`node_modules/`/`.git/`.
-2. **Decide the progress axes** — does the new book have hands-on labs? If yes, keep a `handsOn`/`labDone` axis like the original template; if no (like this one), strip it from `types/appState.ts`, `state/storage.ts`, `progress.ts`, `constants.ts`, `actions/backup.ts`, and the chapter/dashboard views.
+1. **Bootstrap repo** — set up `index.html`, config files, `.github/`, `public/`, `src/`, `docs/` per this document.
+2. **Decide the progress axes** — does the book have hands-on labs? If yes, add a `handsOn`/`labDone` axis alongside `read`/`flashcardDone`; if no (like this one), keep it to `read`/`flashcardDone` only.
 3. **Write `chapterMeta.ts` + `sections.ts`** from the book's real TOC — this fixes every id downstream.
 4. **Update `constants.ts`** — storage key prefix, `TOTAL_SECTIONS`, `TOTAL_FLASHCARDS` (or whatever axis totals apply).
 5. **Write `bookData.{en,vi}.ts`, glossary, resources, quitCriteria`** content.

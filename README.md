@@ -1,6 +1,6 @@
 # Frontend Interview Book Tracker
 
-An interactive web tracker for reading progress and flashcard review through the book [*Acing the Frontend Interview*](https://www.manning.com/books/acing-the-frontend-interview) (Manning, MEAP). Cloned from [`vanilla-web-book-tracker`](https://github.com/thaihuynhquang/vanilla-web-book-tracker) and re-pointed at this book — see `docs/` for the full blueprint.
+An interactive web tracker for reading progress and flashcard review through the book [*Acing the Frontend Interview*](https://www.manning.com/books/acing-the-frontend-interview) (Manning, MEAP) — see `docs/` for the full blueprint.
 
 ## Run locally
 
@@ -46,4 +46,4 @@ Vanilla TypeScript + native Custom Elements (Light DOM) + layered vanilla CSS + 
 Overall % = Read % × 0.5 + Flashcard % × 0.5
 ```
 
-Computed only across the 7 chapters Manning has published so far (49 sections, 7 flashcard tasks). Chapters 7–10 show a "Coming soon" badge and are excluded from the denominator. This book has no hands-on-lab track, so — unlike the sibling `vanilla-web-book-tracker` — there is no hands-on/lab axis in the formula.
+Computed only across the 7 chapters Manning has published so far (49 sections, 7 flashcard tasks). Chapters 7–10 show a "Coming soon" badge and are excluded from the denominator. This book has no hands-on-lab track, so there is no hands-on/lab axis in the formula.
