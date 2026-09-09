@@ -40,7 +40,7 @@ Dark is the `:root` default (`color-scheme: dark`). Light theme flips the same t
 ## 3. UI Component Dictionary
 
 ### 3.1. Header Bar (`.app-header`)
-Brand mark: a flat 2px-bordered square, spotlight-yellow fill, ink-black line-art book icon — no gradient. Export/Import/Reset/Lang/Theme icon buttons.
+Brand mark: a flat 2px-bordered square, spotlight-yellow fill, ink-black line-art book icon — no gradient. Export/Import/Reset/Lang/Theme icon buttons. `.app-header` and `.nav-tabs-container` share one sticky owner, `.app-topbar`, so the tab bar always sticks flush under the header regardless of header height. At `max-width: 768px` the all-icon `.header-actions` row wraps to its own line, left-aligned under the brand, instead of squeezing against it.
 
 ### 3.2. Navigation Tab Bar
 5 tabs: Dashboard, Chapters, Pomodoro, Resources, Quit Criteria. Active tab gets the spotlight fill + ink text. Dashboard tab carries the live overall-% badge.
@@ -49,10 +49,10 @@ Brand mark: a flat 2px-bordered square, spotlight-yellow fill, ink-black line-ar
 3 metric tiles (Sections read, Flashcards done, Focus hours — no hands-on tile, since this book has no hands-on axis), 1 overall progress bar, 1 "Up next" card, and a per-chapter progress list (published chapters only).
 
 ### 3.4. Chapter Card (`.chapter-card`)
-2px hard border, header with chapter-number badge (shows `displayNum` — "A" for the appendix — when set, else `num`), title, section/time meta, status badge + %, progress bar, collapsible section list, flashcard deliverable card. No lab card — this book has no hands-on axis.
+2px hard border, header with chapter-number badge (shows `displayNum` — "A" for the appendix — when set, else `num`), title, section/time meta, status badge + %, progress bar, collapsible section list, flashcard deliverable card. No lab card — this book has no hands-on axis. Title has `min-width: 8rem` (plus `overflow-wrap: anywhere` fallback) so the header row wraps the status badge to its own line on narrow screens instead of breaking the title mid-word — same fix on the Dashboard's per-chapter progress rows.
 
 ### 3.5. Section Row (`.item-row`)
-Section number, title, subsection tag chips, estimated minutes, and a single "Read" checkbox.
+Section number, title, subsection tag chips, estimated minutes, and a single "Read" checkbox. Title and badge follow the same narrow-screen wrap fix as §3.4: `min-width: 8rem` + `overflow-wrap: anywhere` on the title, `flex-shrink: 0` on the badge.
 
 ### 3.6. Pomodoro View (`<book-view-pomodoro>`) — own tab
 Timer state machine, 25/5·50/5·custom presets, session history, chime + browser notification. Zero coupling to book content.
